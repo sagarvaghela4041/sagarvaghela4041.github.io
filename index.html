@@ -21,9 +21,98 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/intro.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
+	  <!--container for whole intro -->
+	  <div class=".container-fluid intro">
+        <!--3D text -->
+        <div class="stage">
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+        </div>
+
+        <!--Flipping animation in background at the start -->
+        <div class="flipping-arrow">
+            <css-doodle grid="100x1">
+                :doodle {
+                @size: 200vmin;
+                }
+                clip-path: polygon(40% 71%, 50% 0, 64% 0, 64% 71%, 73% 71%, 48% 100%, 24% 71%);
+                background: @p(#FDFFFC, #2EC4B6, #E71D36, #FF9F1C);
+                animation: flip @r(2s, 10s) ease-in-out ;
+                animation-fill-mode: forwards;
+                @keyframes flip {
+                0%, 10% {
+                height: 0%;
+                }
+
+                25% {
+                transform: rotateX(@p(360deg, -360deg))
+                height: 50vh;
+                }
+
+                50% {
+                height: 100vh;
+                transform: rotateX(@p(360deg, -360deg))
+                }
+                100% {
+                opacity: 0;
+                display: none;
+                }
+                }
+            </css-doodle>
+        </div>
+        <!--scroll down animation at the bottom of intro -->
+        <div class="down-arrow">
+            <css-doodle grid="1x1">
+                :doodle {
+                @size: 5vmin;
+                }
+                clip-path: polygon(40% 71%, 50% 0, 64% 0, 64% 71%, 73% 71%, 48% 100%, 24% 71%);
+                background: @p(#FFF);
+                animation: flip @r(3s, 3s) ease-in-out infinite;
+                animation-fill-mode: forwards;
+                @keyframes flip {
+                0%, 10% {
+                height: 0%;
+                }
+                25% {
+                transform: rotateX(@p(360deg, -360deg))
+                height: 3vh;
+                }
+                50% {
+                height: 5vh;
+                transform: rotateX(@p(360deg, -360deg))
+                }
+                70% {
+                height: 8vh;
+                }
+                100% {
+                height: 10vh;
+                }
+                }
+            </css-doodle>
+        </div>
+    </div>
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
@@ -45,8 +134,8 @@
 	      </div>
 	    </div>
 	  </nav>
-	  <section class="hero-wrap js-fullheight">
-      <div class="overlay"></div>
+	  <section class="hero-wrap js-fullheight" id="home-section">
+      <!-- <div class="overlay"></div> -->
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
@@ -57,18 +146,18 @@
 								  <span
 								     class="txt-rotate"
 								     data-period="2000"
-								     data-rotate='[ "Web Developer.", "NodeJS Developer.", "Photographer."]'></span>
+								     data-rotate='[ "NodeJS Developer.", "Web Developer."]'></span>
 								</h2>
 							</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="mouse">
+      <!-- <div class="mouse">
 				<a href="#" class="mouse-icon">
 					<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
 				</a>
-			</div>
+			</div> -->
     </section>
 
     <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
@@ -842,6 +931,7 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
+  <script src="js/css-doodle.min.js"></script>
   
   <script src="js/main.js"></script>
     
