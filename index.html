@@ -113,6 +113,34 @@
             </css-doodle>
         </div>
     </div>
+
+	<!-- Modal only for device width less than 800px -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog" id= "modal-dialog" role="document">
+		  <div class="modal-content" id="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLongTitle">Thanks for visiting | Disclaimer</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true" style="color: whitesmoke;">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  I just wanted to say that, I have added many animations and effects that might not be optimzed for mobile screens.
+			   but I have tried my best to make it mobile completable. <br>
+			   Please open this page in larger screen to get better user experience, <br>
+			   or you can also continue here, just click on close and reload button and you are good to go!
+			   <hr>
+			   <button type="button" id="closeAndReload" class="btn btn-light" data-dismiss="modal">Close and reload</button>
+			</div>
+			<!-- <div class="modal-footer justify-content-center">
+			  <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+			</div> -->
+		  </div>
+		</div>
+	  </div>
+
+
+
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
@@ -146,7 +174,7 @@
 								  <span
 								     class="txt-rotate"
 								     data-period="2000"
-								     data-rotate='[ "NodeJS Developer.", "Web Developer."]'></span>
+								     data-rotate='[ "Software Engineer.", "NodeJS Developer.", "Web Developer."]'></span>
 								</h2>
 							</div>
             </div>
@@ -167,7 +195,7 @@
 					<div class="col-md-6 how-img">
 						<img src="images/about.png" class="rounded-circle img-fluid" alt="Sagar Vaghela" />
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 pt-5">
 						<h1>About Me</h1>
 						<!-- <h4 class="subheading">GetLance is a great place to find more clients, and to run and grow your own freelance business.</h4> -->
 						<p>
@@ -586,27 +614,40 @@
 					</div>
 					  <div id="page-4" class= "page four">
 					    <h2 class="heading">Achievements</h2>
-					    <div class="resume-wrap d-flex ftco-animate">
-					    	<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
-					    	</div>
-					    	<div class="text pl-3">
-		    					<span class="date">2020</span>
-		    					<h2>2<sup>nd</sup> Rank achieved.</h2>
-		    					<span class="position">Rajkot Smart City Hackathon - SSIP</span>
-		    					<p>State level 36 hours long hackathon held at Rajkot amongst 183 groups at 4 different universities in Rajkot, jointly organized by Rajkot Municiple corporation and SSIP. </p>
-	    					</div>
-	    				</div>
-	    				<div class="resume-wrap d-flex ftco-animate">
-	    					<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
-					    	</div>
-					    	<div class="text pl-3">
-		    					<span class="date">2019-2020</span>
-		    					<h2>1<sup>st</sup> Rank achieved</h2>
-		    					<span class="position">Hackerrank (Java)</span>
-		    					<p>Solved all the 64 challanges in java practice and get total 933 points.</p>
-		    				</div>
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">2020</span>
+								<h2>Patent Filed</h2>
+								<span class="position">GARBAGE VULNERABLE SPOT DETECTION SYSTEM</span>
+								<p>Issued October 10, &nbsp; 2020India202021044173 <br>
+									As the city grows more and more, the urbanization process is getting faster, and keeping the city clean is the important mesh of the urban development mark. The present novel invention Garbage Vulnerable Spot Detection System provides the detection of congregated waste and dead animals with deep learning modules. The present invention comprises three major modules: <br> I) Detection module, <br> II) Admin module, and <br> III) Geofencing. </p>
+							</div>
+						</div>
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">2020</span>
+								<h2>2<sup>nd</sup> Rank achieved.</h2>
+								<span class="position">Rajkot Smart City Hackathon - SSIP</span>
+								<p>State level 36 hours long hackathon held at Rajkot amongst 183 groups at 4 different universities in Rajkot,
+									jointly organized by Rajkot Municiple corporation and SSIP. </p>
+							</div>
+						</div>
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">2019-2020</span>
+								<h2>1<sup>st</sup> Rank achieved</h2>
+								<span class="position">Hackerrank (Java)</span>
+								<p>Solved all the 64 challanges in java practice and get total 933 points.</p>
+							</div>
 						</div>
 						
 					  </div>
@@ -619,7 +660,7 @@
     	<div class="container-fluid px-md-5">
     		<div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
+          	<!-- <h1 class="big big-2">Services</h1> -->
             <h2 class="mb-4">Services</h2>
           </div>
         </div>
@@ -665,7 +706,7 @@
     	<div class="container-fluid px-md-5">
     		<div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
+          	<!-- <h1 class="big big-2">Services</h1> -->
             <h2 class="mb-4">Projects</h2>
           </div>
         </div>
@@ -795,7 +836,7 @@
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
+            <!-- <h1 class="big big-2">Contact</h1> -->
             <h2 class="mb-4">Contact Me</h2>
             <p>Let's Get in touch !</p>
           </div>
@@ -960,7 +1001,8 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/css-doodle.min.js"></script>
-  
+  <script src="js/jquery.cookie.min.js"></script>
+
   <script src="js/main.js"></script>
 
   </body>

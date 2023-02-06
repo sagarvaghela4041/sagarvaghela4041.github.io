@@ -3,6 +3,15 @@ AOS.init({
 	easing: 'slide'
 });
 
+$(window).on('load', function() {
+	if (window.innerWidth < 800) {
+		if ($.cookie('pop') == null) {
+			$('#myModal').modal('show');
+			$.cookie('pop', '1');
+		}
+	  }
+});
+
 (function ($) {
 
 	"use strict";
@@ -61,7 +70,6 @@ AOS.init({
 
 	};
 	burgerMenu();
-
 
 	var onePageClick = function () {
 
@@ -453,3 +461,9 @@ $(function () {
 	}
 
 });
+
+$(function () {
+	$('#myModal').on( 'click', '#closeAndReload', function() {
+		location.reload();
+	 });
+})(jQuery);
