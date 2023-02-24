@@ -21,9 +21,126 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/intro.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
+	  <!--container for whole intro -->
+	  <div class=".container-fluid intro">
+        <!--3D text -->
+        <div class="stage">
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+        </div>
+
+        <!--Flipping animation in background at the start -->
+        <div class="flipping-arrow">
+            <css-doodle grid="100x1">
+                :doodle {
+                @size: 200vmin;
+                }
+                clip-path: polygon(40% 71%, 50% 0, 64% 0, 64% 71%, 73% 71%, 48% 100%, 24% 71%);
+                background: @p(#FDFFFC, #2EC4B6, #E71D36, #FF9F1C);
+                animation: flip @r(2s, 10s) ease-in-out ;
+                animation-fill-mode: forwards;
+                @keyframes flip {
+                0%, 10% {
+                height: 0%;
+                }
+
+                25% {
+                transform: rotateX(@p(360deg, -360deg))
+                height: 50vh;
+                }
+
+                50% {
+                height: 100vh;
+                transform: rotateX(@p(360deg, -360deg))
+                }
+                100% {
+                opacity: 0;
+                display: none;
+                }
+                }
+            </css-doodle>
+        </div>
+        <!--scroll down animation at the bottom of intro -->
+        <div class="down-arrow">
+            <css-doodle grid="1x1">
+                :doodle {
+                @size: 5vmin;
+                }
+                clip-path: polygon(40% 71%, 50% 0, 64% 0, 64% 71%, 73% 71%, 48% 100%, 24% 71%);
+                background: @p(#FFF);
+                animation: flip @r(3s, 3s) ease-in-out infinite;
+                animation-fill-mode: forwards;
+                @keyframes flip {
+                0%, 10% {
+                height: 0%;
+                }
+                25% {
+                transform: rotateX(@p(360deg, -360deg))
+                height: 3vh;
+                }
+                50% {
+                height: 5vh;
+                transform: rotateX(@p(360deg, -360deg))
+                }
+                70% {
+                height: 8vh;
+                }
+                100% {
+                height: 10vh;
+                }
+                }
+            </css-doodle>
+        </div>
+    </div>
+
+	<!-- Modal only for device width less than 800px -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog" id= "modal-dialog" role="document">
+		  <div class="modal-content" id="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLongTitle">Thanks for visiting | Disclaimer</h5>
+			  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true" style="color: whitesmoke;">&times;</span>
+			  </button> -->
+			</div>
+			<div class="modal-body">
+			  I just wanted to say that, I have added a few animations and effects that might not be optimzed for mobile screens.
+			   but I have tried my best to make them mobile completable. <br>
+			   Please open this page in larger screen to get better user experience, <br>
+			   or you can also continue here, just click below button and you are good to go!
+			   <hr>
+			   <button type="button" id="closeAndReload" class="btn btn-light" data-dismiss="modal">Let's GO!</button>
+			</div>
+			<!-- <div class="modal-footer justify-content-center">
+			  <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+			</div> -->
+		  </div>
+		</div>
+	  </div>
+
+
+
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
@@ -45,8 +162,8 @@
 	      </div>
 	    </div>
 	  </nav>
-	  <section class="hero-wrap js-fullheight">
-      <div class="overlay"></div>
+	  <section class="hero-wrap js-fullheight" id="home-section">
+      <!-- <div class="overlay"></div> -->
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
@@ -57,51 +174,63 @@
 								  <span
 								     class="txt-rotate"
 								     data-period="2000"
-								     data-rotate='[ "Web Developer.", "NodeJS Developer.", "Photographer."]'></span>
+								     data-rotate='[ "Software Engineer.", "NodeJS Developer.", "Web Developer."]'></span>
 								</h2>
 							</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="mouse">
+      <!-- <div class="mouse">
 				<a href="#" class="mouse-icon">
 					<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
 				</a>
-			</div>
+			</div> -->
     </section>
 
     <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
-    	<div class="container">
-    		<div class="row d-flex no-gutters">
-    			<div class="col-md-6 col-lg-6 d-flex">
-    				<div class="img-about img d-flex align-items-stretch">
-    					<div class="overlay"></div>
-	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about.jpg);">
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-6 pl-md-5 py-5">
-    				<div class="row justify-content-start pb-3">
-		          <div class="col-md-12 heading-section ftco-animate">
-		          	<h1 class="big">About</h1>
-		            <h2 class="mb-4">About Me</h2>
-		            <p>Simplicity is prerequisite for reliability.</p>
-		            <ul class="about-info mt-4 px-md-0 px-2">
-		            	<li class="d-flex"><span>Name:</span> <span>Sagar S. Vaghela</span></li>
-		            	<li class="d-flex"><span>Date of birth:</span> <span>October 21, 1999</span></li>
-		            	<li class="d-flex"><span>Address:</span> <span>Surat, Gujarat</span></li>
-		            	<li class="d-flex"><span>Zip code:</span> <span>395006</span></li>
-		            	<li class="d-flex"><span>Email:</span> <span>sagarvaghela4041@gmail.com</span></li>
-		            	<li class="d-flex"><span>Phone: </span> <span>+91 94092 60529</span></li>
-		            </ul>
-		          </div>
+		<div class="container">
+			<div class="how-section1">
+				<div class="row">
+					<div class="col-md-6 how-img">
+						<img src="images/about.png" class="rounded-circle img-fluid" alt="Sagar Vaghela" />
+					</div>
+					<div class="col-md-6 pt-5">
+						<h1>About Me</h1>
+						<!-- <h4 class="subheading">GetLance is a great place to find more clients, and to run and grow your own freelance business.</h4> -->
+						<p>
+							I am an enthusiastic learner having a computer engineering degree from Gujarat technological
+							university. Currently,
+							I am working as a software engineer at tatvasoft. <hr style="background-color:whitesmoke">
+							I have some history in different technologies
+							during my
+							engineering and industrial training as per the following: <br>
+
+							NodeJS (current):
+							Working with NodeJS, typescript for API development. <br>
+		
+							Databases:
+							SQL Server, Postgres, MongoDB, MySQL, Amazon RDS.  <br>
+							AWS Service: EC2, RDS, S3, Lambda. <br>
+							Java development :
+							Having knowledge of Core and advanced Java,
+							Java server pages, servlets, and frameworks like hibernate, spring, spring boot with MVC
+							architecture, and maven.
+
+							<hr style="background-color:whitesmoke">
+		
+							Creating computer vision applications is one of my hobbies, I tried creating different applications
+							using computer
+							vision, deep learning during my engineering journey, some of them are included in my linkedin profile's
+							project and patent
+							section. If you have a similar interest then please connect on linkedin or mail to
+							sagarvaghela4041@gmail.com.
+						</p>
+					</div>
 				</div>
-				
-	          
-	        </div>
-        </div>
-    	</div>
+			</div>
+		
+		</div>
     </section>
 
     <section class="ftco-section ftco-partner">
@@ -144,7 +273,7 @@
 					  	<h2 class="heading">Education</h2>
 					    <div class="resume-wrap d-flex ftco-animate">
 					    	<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
+									<img src="images/vgec.png" alt="VGEC Logo" class="rounded-circle institue-logo">
 					    	</div>
 					    	<div class="text pl-3">
 		    					<span class="date">2017-2021</span>
@@ -155,7 +284,7 @@
 	    				</div>
 	    				<div class="resume-wrap d-flex ftco-animate">
 	    					<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
+					    		<img src="images/Aashadeep.png" alt="VGEC Logo" class="rounded-circle institue-logo">
 					    	</div>
 					    	<div class="text pl-3">
 		    					<span class="date">2015-2017</span>
@@ -166,7 +295,7 @@
 	    				</div>
 	    				<div class="resume-wrap d-flex ftco-animate">
 	    					<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
+					    		<img src="images/suncity.png" alt="VGEC Logo" class="rounded-circle institue-logo">
 					    	</div>
 					    	<div class="text pl-3">
 		    					<span class="date">2014-2015</span>
@@ -191,28 +320,38 @@
 					  <div id="page-2" class= "page two">
 					  	<h2 class="heading">Experience</h2>
 						  <div class="resume-wrap d-flex ftco-animate">
-					    	<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
-					    	</div>
-					    	<div class="text pl-3">
-		    					<span class="date">Jul 2021 - Present</span>
-		    					<h2>Trainee Software Engineer</h2>
-		    					<span class="position">TatvaSoft</span>
-		    				</div>
-	    				</div>
+							<div class="icon d-flex align-items-center justify-content-center">
+								<img src="images/tatvasoft.png" alt="VGEC Logo" class="rounded-circle institue-logo">
+							</div>
+							<div class="text pl-3">
+								<span class="date">Jul 2021 - Present</span>
+								<h2>Software Engineer</h2>
+								<span class="position">TatvaSoft</span>
+							</div>
+						</div>
+						<!-- <div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<img src="images/tatvasoft.png" alt="VGEC Logo" class="rounded-circle institue-logo">
+							</div>
+							<div class="text pl-3">
+								<span class="date">Jul 2021 - Jul 2022</span>
+								<h2>Trainee Software Engineer</h2>
+								<span class="position">TatvaSoft</span>
+							</div>
+						</div> -->
 						  <div class="resume-wrap d-flex ftco-animate">
 					    	<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
+					    		<img src="images/tatvasoft.png" alt="VGEC Logo" class="rounded-circle institue-logo">
 					    	</div>
 					    	<div class="text pl-3">
-		    					<span class="date">Jan 2021 - Jul 2020</span>
+		    					<span class="date">Jan 2021 - Jul 2021</span>
 		    					<h2>Trainee</h2>
 		    					<span class="position">TatvaSoft</span>
 		    				</div>
 	    				</div>
 					    <div class="resume-wrap d-flex ftco-animate">
 					    	<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
+					    		<img src="images/softvan.png" alt="VGEC Logo" class="rounded-circle institue-logo">
 					    	</div>
 					    	<div class="text pl-3">
 		    					<span class="date">Oct 2019 - Feb 2020</span>
@@ -222,7 +361,7 @@
 	    				</div>
 	    				<div class="resume-wrap d-flex ftco-animate">
 	    					<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
+					    		<img src="images/softvan.png" alt="VGEC Logo" class="rounded-circle institue-logo">
 					    	</div>
 					    	<div class="text pl-3">
 		    					<span class="date">Jun 2018 - Sep 2019</span>
@@ -276,220 +415,240 @@
 		    				</div>
 	    				</div> -->
 					  </div>
-					  <div id="page-3" class= "page three">
-					  	<h2 class="heading">Skills</h2>
-					  	<div class="row progress-circle mb-5">
-					  		<div class="col-lg-4 mb-4">
-						      <div class="bg-white rounded-lg shadow p-4">
-						        <h2 class="h5 font-weight-bold text-center mb-4">Core Java</h2>
+					<div id="page-3" class="page three">
+						<h2 class="heading">Skills</h2>
+						<div class="row progress-circle mb-5">
+							
+					
+							<div class="col-lg-4 mb-4">
+								<div class="rounded-lg shadow p-4">
+									<h2 class="h5 font-weight-bold text-center mb-4">Node Js</h2>
+					
+									<!-- Progress bar 1 -->
+									<div class="progress mx-auto" data-value='95'>
+										<span class="progress-left">
+											<span class="progress-bar border-primary"></span>
+										</span>
+										<span class="progress-right">
+											<span class="progress-bar border-primary"></span>
+										</span>
+										<div
+											class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+											<div class="h2 font-weight-bold">95<sup class="small">%</sup></div>
+										</div>
+									</div>
+									<!-- END -->
+					
+									<!-- Demo info -->
+									<!-- <div class="row text-center mt-4">
+											          <div class="col-6 border-right">
+											            <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+											          </div>
+											          <div class="col-6">
+											            <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+											          </div>
+											        </div> -->
+									<!-- END -->
+								</div>
+							</div>
+					
+							<div class="col-lg-4 mb-4">
+								<div class="rounded-lg shadow p-4">
+									<h2 class="h5 font-weight-bold text-center mb-4">TypeScript</h2>
+					
+									<!-- Progress bar 1 -->
+									<div class="progress mx-auto" data-value='85'>
+										<span class="progress-left">
+											<span class="progress-bar border-primary"></span>
+										</span>
+										<span class="progress-right">
+											<span class="progress-bar border-primary"></span>
+										</span>
+										<div
+											class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+											<div class="h2 font-weight-bold">85<sup class="small">%</sup></div>
+										</div>
+									</div>
+									<!-- END -->
+					
+									<!-- Demo info -->
+									<!-- <div class="row text-center mt-4">
+											          <div class="col-6 border-right">
+											            <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+											          </div>
+											          <div class="col-6">
+											            <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+											          </div>
+											        </div> -->
+									<!-- END -->
+								</div>
+							</div>
+							
+							<div class="col-lg-4 mb-4">
+								<div class="rounded-lg shadow p-4">
+									<h2 class="h5 font-weight-bold text-center mb-4">Core Java</h2>
+					
+									<!-- Progress bar 1 -->
+									<div class="progress mx-auto" data-value='75'>
+										<span class="progress-left">
+											<span class="progress-bar border-primary"></span>
+										</span>
+										<span class="progress-right">
+											<span class="progress-bar border-primary"></span>
+										</span>
+										<div
+											class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+											<div class="h2 font-weight-bold">75<sup class="small">%</sup></div>
+										</div>
+									</div>
+									<!-- END -->
+					
+									<!-- Demo info -->
+									<!-- <div class="row text-center mt-4">
+											          <div class="col-6 border-right">
+											            <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+											          </div>
+											          <div class="col-6">
+											            <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+											          </div>
+											        </div> -->
+									<!-- END -->
+								</div>
+							</div>
 
-						        <!-- Progress bar 1 -->
-						        <div class="progress mx-auto" data-value='95'>
-						          <span class="progress-left">
-                        <span class="progress-bar border-primary"></span>
-						          </span>
-						          <span class="progress-right">
-                        <span class="progress-bar border-primary"></span>
-						          </span>
-						          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-						            <div class="h2 font-weight-bold">85<sup class="small">%</sup></div>
-						          </div>
-						        </div>
-						        <!-- END -->
 
-						        <!-- Demo info -->
-						        <!-- <div class="row text-center mt-4">
-						          <div class="col-6 border-right">
-						            <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
-						          </div>
-						          <div class="col-6">
-						            <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
-						          </div>
-						        </div> -->
-						        <!-- END -->
-						      </div>
-						    </div>
-
-						    <div class="col-lg-4 mb-4">
-						      <div class="bg-white rounded-lg shadow p-4">
-						        <h2 class="h5 font-weight-bold text-center mb-4">Node Js</h2>
-
-						        <!-- Progress bar 1 -->
-						        <div class="progress mx-auto" data-value='95'>
-						          <span class="progress-left">
-                        <span class="progress-bar border-primary"></span>
-						          </span>
-						          <span class="progress-right">
-                        <span class="progress-bar border-primary"></span>
-						          </span>
-						          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-						            <div class="h2 font-weight-bold">95<sup class="small">%</sup></div>
-						          </div>
-						        </div>
-						        <!-- END -->
-
-						        <!-- Demo info -->
-						        <!-- <div class="row text-center mt-4">
-						          <div class="col-6 border-right">
-						            <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
-						          </div>
-						          <div class="col-6">
-						            <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
-						          </div>
-						        </div> -->
-						        <!-- END -->
-						      </div>
-						    </div>
-
-						    <div class="col-lg-4 mb-4">
-						      <div class="bg-white rounded-lg shadow p-4">
-						        <h2 class="h5 font-weight-bold text-center mb-4">TypeScript</h2>
-
-						        <!-- Progress bar 1 -->
-						        <div class="progress mx-auto" data-value='75'>
-						          <span class="progress-left">
-                        <span class="progress-bar border-primary"></span>
-						          </span>
-						          <span class="progress-right">
-                        <span class="progress-bar border-primary"></span>
-						          </span>
-						          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-						            <div class="h2 font-weight-bold">75<sup class="small">%</sup></div>
-						          </div>
-						        </div>
-						        <!-- END -->
-
-						        <!-- Demo info -->
-						        <!-- <div class="row text-center mt-4">
-						          <div class="col-6 border-right">
-						            <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
-						          </div>
-						          <div class="col-6">
-						            <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
-						          </div>
-						        </div> -->
-						        <!-- END -->
-						      </div>
-						    </div>
-						  </div>
-						  
-						  
-					  	<div class="row">
-					  		
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>Jsp, Servlets</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="95"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:95%">
-										    <span>95%</span>
-										  	</div>
+						</div>
+					
+					
+						<div class="row">
+					
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>JavaScript</h3>
+									<div class="progress">
+										<div class="progress-bar color-3" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+											aria-valuemax="100" style="width:95%">
+											<span>95%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>Hibernate</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-										    <span>90%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>TypeScript</h3>
+									<div class="progress">
+										<div class="progress-bar color-4" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+											aria-valuemax="100" style="width:90%">
+											<span>90%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>Spring-MVC, Spring-boot</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="90"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-										    <span>90%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>Express.js</h3>
+									<div class="progress">
+										<div class="progress-bar color-5" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+											aria-valuemax="100" style="width:90%">
+											<span>90%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>Maven</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="60"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:60%">
-										    <span>60%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>PostgreSQL</h3>
+									<div class="progress">
+										<div class="progress-bar color-6" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+											aria-valuemax="100" style="width:90%">
+											<span>90%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>AWS (EC2,S3,RDS)</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-										    <span>80%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>AWS (EC2,S3,RDS,Lambda,CloudWatch)</h3>
+									<div class="progress">
+										<div class="progress-bar color-6" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100" style="width:80%">
+											<span>80%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>Python</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="70"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-										    <span>70%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>Java</h3>
+									<div class="progress">
+										<div class="progress-bar color-6" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+											aria-valuemax="100" style="width:70%">
+											<span>70%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>Java Script</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="80"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-										    <span>80%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>MVC</h3>
+									<div class="progress">
+										<div class="progress-bar color-1" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100" style="width:95%">
+											<span>95%</span>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6 animate-box">
-									<div class="progress-wrap ftco-animate">
-										<h3>jQuery</h3>
-										<div class="progress">
-										 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="65"
-										  	aria-valuemin="0" aria-valuemax="100" style="width:65%">
-										    <span>65%</span>
-										  	</div>
+							</div>
+							<div class="col-md-6 animate-box">
+								<div class="progress-wrap ftco-animate">
+									<h3>Rest API</h3>
+									<div class="progress">
+										<div class="progress-bar color-2" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+											aria-valuemax="100" style="width:90%">
+											<span>90%</span>
 										</div>
 									</div>
 								</div>
-
-					  	</div>
-					  </div>
+							</div>
+					
+						</div>
+					</div>
 					  <div id="page-4" class= "page four">
 					    <h2 class="heading">Achievements</h2>
-					    <div class="resume-wrap d-flex ftco-animate">
-					    	<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
-					    	</div>
-					    	<div class="text pl-3">
-		    					<span class="date">2020</span>
-		    					<h2>2<sup>nd</sup> Rank achieved.</h2>
-		    					<span class="position">Rajkot Smart City Hackathon - SSIP</span>
-		    					<p>State level 36 hours long hackathon held at Rajkot amongst 183 groups at 4 different universities in Rajkot, jointly organized by Rajkot Municiple corporation and SSIP. </p>
-	    					</div>
-	    				</div>
-	    				<div class="resume-wrap d-flex ftco-animate">
-	    					<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
-					    	</div>
-					    	<div class="text pl-3">
-		    					<span class="date">2019-2020</span>
-		    					<h2>1<sup>st</sup> Rank achieved</h2>
-		    					<span class="position">Hackerrank (Java)</span>
-		    					<p>Solved all the 64 challanges in java practice and get total 933 points.</p>
-		    				</div>
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">2020</span>
+								<h2>Patent Filed</h2>
+								<span class="position">GARBAGE VULNERABLE SPOT DETECTION SYSTEM</span>
+								<p>Issued October 10, &nbsp; 2020India202021044173 <br>
+									As the city grows more and more, the urbanization process is getting faster, and keeping the city clean is the important mesh of the urban development mark. The present novel invention Garbage Vulnerable Spot Detection System provides the detection of congregated waste and dead animals with deep learning modules. The present invention comprises three major modules: <br> I) Detection module, <br> II) Admin module, and <br> III) Geofencing. </p>
+							</div>
+						</div>
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">2020</span>
+								<h2>2<sup>nd</sup> Rank achieved.</h2>
+								<span class="position">Rajkot Smart City Hackathon - SSIP</span>
+								<p>State level 36 hours long hackathon held at Rajkot amongst 183 groups at 4 different universities in Rajkot,
+									jointly organized by Rajkot Municiple corporation and SSIP. </p>
+							</div>
+						</div>
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">2019-2020</span>
+								<h2>1<sup>st</sup> Rank achieved</h2>
+								<span class="position">Hackerrank (Java)</span>
+								<p>Solved all the 64 challanges in java practice and get total 933 points.</p>
+							</div>
 						</div>
 						
 					  </div>
@@ -502,30 +661,30 @@
     	<div class="container-fluid px-md-5">
     		<div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
+          	<!-- <h1 class="big big-2">Services</h1> -->
             <h2 class="mb-4">Services</h2>
           </div>
         </div>
     		<div class="row">
+				<div class="col-md-4 text-center d-flex ftco-animate">
+					<a href="#" class="services-1 shadow">
+						<span class="icon">
+							<i class="flaticon-flasks"></i>
+						</span>
+						<div class="desc">
+							<h3 class="mb-5">REST API</h3>
+							<p>Development of RESTfull APIs with the help of various frameworks of nodeJS.</p>
+						</div>
+					</a>
+				</div>				
 					<div class="col-md-4 text-center d-flex ftco-animate">
 						<a href="#" class="services-1 shadow">
 							<span class="icon">
 								<i class="flaticon-analysis"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">Web Design</h3>
-								<p>Responsive and user friendly web development with HTML5, CSS3 and Bootstrap4.</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">REST API</h3>
-								<p>Development of efficient RESTfull APIs with the help of Spring-boot.</p>
+								<h3 class="mb-5">Web Development</h3>
+								<p>Efficient web development with the help of various frameworks of JavaScript, TypeScript and cloud service provider like AWS.</p>
 							</div>
 						</a>
 					</div>
@@ -535,8 +694,8 @@
 								<i class="flaticon-ideas"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">Web Development</h3>
-								<p>Efficient web development with various java frameworks like Hibernate, Spring-MVC, Spring-boot with maven.</p>
+								<h3 class="mb-5">Automation</h3>
+								<p>Cron jobs and schedulers to automate scheduled, repeated complex tasks.</p>
 							</div>
 						</a>
 					</div>
@@ -548,7 +707,7 @@
     	<div class="container-fluid px-md-5">
     		<div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
+          	<!-- <h1 class="big big-2">Services</h1> -->
             <h2 class="mb-4">Projects</h2>
           </div>
         </div>
@@ -556,8 +715,8 @@
 					<div class="col-md-4 text-center d-flex ftco-animate">
 						<a href="#" class="services-1 shadow">
 							<div class="desc">
-								<h3 class="mb-5">E-PhotoStudio</h3>
-								<p>E-PhotoStudio is platform from where you can find photographers online for party or events at your home. You can find number of photographers here. Also photographer can build their profile here. Based on their performance you can select for your work. This site also allows you to book photographer and cancel the order. Photographer can view the request of all customers and based upon their convenience they can confirm the order or reject it.It is developed in java spring.</p>
+								<h3 class="mb-5">Wizcart - A Service Marketplace</h3>
+								<p>Wizcart is an e-commerce platform in which various service providers and customers can set up their profiles and sell or buy various kinds of services. Customers can check different services by categories and sub-categories and place orders by selecting the required date and time for delivery and desired provider from the given matching providers' list using the customer portal. All services and users can be maintained by wizcart admin from the role-based admin portal. Providers are also further categorized by roles. Admin can add services and categories with multiple available date ranges, geographical locations, details, and configurations like packages, questions and answers, and mapping of them with the package. Users can track the order and see the order history. Both providers and customers can modify, or reschedule orders at a predefined time in the order life cycle. Other functionalities include feedback, disputes, marketing, etc.</p>
 							</div>
 						</a>
 					</div>
@@ -565,8 +724,8 @@
 						<a href="#" class="services-1 shadow">
 							
 							<div class="desc">
-								<h3 class="mb-5">Agri-Tred</h3>
-								<p>Providing one commmon platform to farmers and customers to eliminate the middle agents extra coasts and help both farmers and customers as well.Farmers can post the their products, quantity of product, location and price etc. Customers can search throught product name, location and alos can filter by price and location.</p>
+								<h3 class="mb-5">Notes MarketPlace</h3>
+								<p>Notes MarketPlace is an online marketplace for students to buy and sell their notes. Notes can be either paid or free. Users can directly search for the notes by search feature with filters including university, category, course information, etc. Users can surf the site anonymously and can download the free notes available, if the user wants to download a paid note then the user has to register or log in to the portal. Users can see their downloaded and uploaded notes and status in the list. Users can give ratings to a particular note after downloading it, the average rating is shown on the notes details page along with other details. Uploaded notes of users will be verified by admins and then published. Admins can log in through the same portal by using credentials given by the super admin. admins can see all activities of users using various filters and dashboards. Different emails are sent to respective users on various events.</p>
 							</div>
 						</a>
 					</div>
@@ -574,14 +733,8 @@
 						<a href="#" class="services-1 shadow">
 							
 							<div class="desc">
-								<h3 class="mb-5">Real Time Hospital Management</h3>
-								<p>When accident happens on the road, Ambulance arrives, the emergency medical technician take the photograph of patient and upload it on the application and start the primary treatment.
-
-									Then he scan the finger print of patient and upload the information on the application.
-									
-									App will find the best hospital by calculating the smallest distance to the hospital from the place of accident,
-									,The review of hospital and traffic in the route.
-									Also inform to his/her family.</p>
+								<h3 class="mb-5">BounceBack</h3>
+								<p>BounceBack is an app for anyone who has an orthopedic injury and wants to gain an edge in their recovery. After registration users are asked to give answers to some pre-defined questions. Based on the answers given by the users, potential user matches are listed, and users can send them a buddy request and connect with them. Users can write a post about their experience and add reactions, comments, reply to the comment to the post of other users. Users can block or report the user, post, or comment. users can update their recovery journey step by step. Using the chat feature users can communicate with each other after becoming buddies. Admin can get the list of all registered users with their details. Admin can see how many users have blocked or reported a particular user, post, or comment through the admin panel. BounceBack is available for both Android and iOS devices. </p>
 							</div>
 						</a>
 					</div>
@@ -678,7 +831,7 @@
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
+            <!-- <h1 class="big big-2">Contact</h1> -->
             <h2 class="mb-4">Contact Me</h2>
             <p>Let's Get in touch !</p>
           </div>
@@ -768,7 +921,9 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About</h2>
-              <p>Java Developer with hands-on experience in various frameworks of java like Hibernate, Spring-MVC, Spring-boot etc.</p>
+              <p>I am an enthusiastic learner having a computer engineering degree from Gujarat technological
+				university. Currently,
+				I am working as a software engineer at tatvasoft.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="https://www.linkedin.com/in/sagarvaghela/" target="_blank"><span class="icon-linkedin"></span></a></li>
                 <li class="ftco-animate"><a href="https://twitter.com/sagar__vaghela" target="_blank"><span class="icon-twitter"></span></a></li>
@@ -792,16 +947,16 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Services</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Rest API</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>REST APIs</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Automation</a></li>
 
               </ul>
             </div>
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Have any Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Surat, Gujarat</span></li>
@@ -816,7 +971,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed with <i class="icon-heart color-danger" aria-hidden="true"></i> by Sagar Vaghela
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed with <i class="icon-heart color-danger" aria-hidden="true"></i> by Sagar Vaghela.
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
 		</div>
@@ -842,8 +997,10 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  
+  <script src="js/css-doodle.min.js"></script>
+  <script src="js/jquery.cookie.min.js"></script>
+
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>
