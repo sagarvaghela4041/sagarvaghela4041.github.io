@@ -5,6 +5,8 @@ AOS.init({
 
 $(window).on('load', function() {
 	if (window.innerWidth < 800) {
+			// $('#myModal').modal('show');
+
 		if ($.cookie('pop') == null) {
 			$('#myModal').modal('show');
 			$.cookie('pop', '1');
@@ -75,6 +77,9 @@ $(window).on('load', function() {
 
 
 		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
+			if ($('#ftco-nav').is(':visible')) {
+				$('.js-fh5co-nav-toggle').click();
+			}
 			event.preventDefault();
 
 			var href = $.attr(this, 'href');
@@ -84,6 +89,7 @@ $(window).on('load', function() {
 			}, 500, function () {
 				// window.location.hash = href;
 			});
+			
 		});
 
 	};
