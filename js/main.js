@@ -6,7 +6,6 @@ AOS.init({
 $(window).on('load', function() {
 	if (window.innerWidth < 800) {
 			// $('#myModal').modal('show');
-
 		if ($.cookie('pop') == null) {
 			$('#myModal').modal('show');
 			$.cookie('pop', '1');
