@@ -11,36 +11,6 @@ $(window).on('load', function() {
 			$.cookie('pop', '1');
 		}
 	  }
-		var latitude,longitude;
-		function getLoc() {
-		  if (navigator.geolocation) { 
-		    navigator.geolocation.getCurrentPosition(logPosition);
-		  } else {
-		    alert("Location is not supported by this browser.");
-		  }
-		}
-		function logPosition(position) {
-		  latitude=position.coords.latitude;
-		  longitude=position.coords.longitude;
-		  console.log(latitude);
-		  $.ajax({
-			url: "https://ap-south-1.aws.data.mongodb-api.com/app/data-absqu/endpoint/data/v1/action/insertOne",
-			data: { 
-				date: new Date(),
-				latitude:latitude,
-				longitude:longitude
-			},
-			type: "POST",
-			headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Request-Headers': '*',
-				'api-key': 'LrXJklhKZVMRQ8GOukU0xpZriWGlyI4SL82ynngqQ5n8XExtGmP0dIGgo2CYUVti',
-				'Acess-Control-Allow-Origin':'*'
-            },
-			success: function() { alert('Success!' + authHeader); }
-		 });	
-		}
-		getLoc();
 });
 
 (function ($) {
