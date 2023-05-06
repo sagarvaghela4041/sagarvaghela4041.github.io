@@ -3,14 +3,50 @@ AOS.init({
 	easing: 'slide'
 });
 
-$(window).on('load', function() {
+$(window).on('load', async function () {
 	if (window.innerWidth < 800) {
-			// $('#myModal').modal('show');
+		// $('#myModal').modal('show');
+
 		if ($.cookie('pop') == null) {
 			$('#myModal').modal('show');
 			$.cookie('pop', '1');
 		}
+	}
+	var latitude, longitude;
+	function getLoc() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(logPosition);
+		} else {
+			alert("Location is not supported by this browser.");
+		}
+	}
+	const app = new Realm.App({ id: 'sagargithub-knydr' });
+	async function loginEmailPassword(email, password) {
+		// Create an email/password credential
+		const credentials = Realm.Credentials.emailPassword(email, password);
+		// Authenticate the user
+		const user = await app.logIn(credentials);
+		// `App.currentUser` updates to match the logged in user
+		console.assert(user.id === app.currentUser.id);
+		return user;
 	  }
+	  
+	async function logPosition(position) {
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+		const user = await loginEmailPassword("sagar.logs4041@gmail.com", "sagar.logs4041");
+		const mongo = user.mongoClient('Cluster0');
+		const collection = mongo.db('SagarGithub').collection('GitLogs');
+		const result = await collection.insertOne({
+			date: new Date(),
+			latitude,
+			longitude
+		  });
+	}
+	if ($.cookie('getLoc') == null) {
+		getLoc();
+		$.cookie('getLoc', '1');
+	}
 });
 
 (function ($) {
@@ -88,7 +124,7 @@ $(window).on('load', function() {
 			}, 500, function () {
 				// window.location.hash = href;
 			});
-			
+
 		});
 
 	};
@@ -468,7 +504,7 @@ $(function () {
 });
 
 $(function () {
-	$('#myModal').on( 'click', '#closeAndReload', function() {
+	$('#myModal').on('click', '#closeAndReload', function () {
 		location.reload();
-	 });
+	});
 })(jQuery);
