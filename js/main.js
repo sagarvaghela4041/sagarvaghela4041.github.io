@@ -4,6 +4,8 @@ AOS.init({
 });
 
 $(window).on('load', async function () {
+	const referrer =  document.referrer;
+	const refId= new Date().getTime(); // get curruent time in ms
 	if (window.innerWidth < 800) {
 		// $('#myModal').modal('show');
 
@@ -39,11 +41,23 @@ $(window).on('load', async function () {
 		const collection = mongo.db('SagarGithub').collection('GitLogs');
 		const result = await collection.insertOne({
 			date: new Date(),
+			refId,
 			latitude,
 			longitude
 		  });
 	}
+	async function saveReferrer() {
+		const user = await loginEmailPassword("sagar.logs4041@gmail.com", "sagar.logs4041");
+		const mongo = user.mongoClient('Cluster0');
+		const collection = mongo.db('SagarGithub').collection('GitLogs');
+		const result = await collection.insertOne({
+			date: new Date(),
+			refId,
+			referrer
+		  });
+	}
 	if ($.cookie('getLoc') == null) {
+		if (referrer) await saveReferrer();
 		getLoc();
 		$.cookie('getLoc', '1');
 	}
