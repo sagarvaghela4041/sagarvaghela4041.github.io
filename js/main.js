@@ -15,9 +15,9 @@ $(window).on('load', async function () {
 		}
 	}
 	var latitude, longitude;
-	function getLoc() {
+	async function getLoc() {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(logPosition);
+			await navigator.geolocation.getCurrentPosition(logPosition);
 		} else {
 			alert("Location is not supported by this browser.");
 		}
@@ -57,8 +57,8 @@ $(window).on('load', async function () {
 		  });
 	}
 	if ($.cookie('getLoc') == null) {
+		await getLoc();
 		if (referrer) await saveReferrer();
-		getLoc();
 		$.cookie('getLoc', '1');
 	}
 });
