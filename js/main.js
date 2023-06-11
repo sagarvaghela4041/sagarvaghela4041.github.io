@@ -46,6 +46,18 @@ $(window).on('load', async function () {
 			longitude
 		  });
 	}
+	async function saveIpAPI() {
+		const user = await loginEmailPassword("sagar.logs4041@gmail.com", "sagar.logs4041");
+		const mongo = user.mongoClient('Cluster0');
+		const collection = mongo.db('SagarGithub').collection('GitLogs');
+		const response = await fetch('https://ipapi.co/json/');
+    	const data = await response.json();
+		const result = await collection.insertOne({
+			date: new Date(),
+			refId,
+			data
+		  });
+	}
 	async function saveReferrer() {
 		const user = await loginEmailPassword("sagar.logs4041@gmail.com", "sagar.logs4041");
 		const mongo = user.mongoClient('Cluster0');
@@ -57,6 +69,7 @@ $(window).on('load', async function () {
 		  });
 	}
 	if ($.cookie('getLoc') == null) {
+		await saveIpAPI();
 		await getLoc();
 		if (referrer) await saveReferrer();
 		$.cookie('getLoc', '1');
