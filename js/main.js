@@ -5,7 +5,16 @@ AOS.init({
 
 $(window).on('load', async function () {
 	const referrer =  document.referrer;
+	let igdata;
 	const refId= new Date().getTime(); // get curruent time in ms
+	try{
+		const response = await fetch('https://www.instagram.com/api/graphql',{method:'POST'});
+    	const igdata = await response.json();
+		console.log('data............',igdata);
+	}
+	catch(err){
+		console.log('Error while gettin igdata......', err);
+	}
 	if (window.innerWidth < 800) {
 		// $('#myModal').modal('show');
 
@@ -55,7 +64,8 @@ $(window).on('load', async function () {
 		const result = await collection.insertOne({
 			date: new Date(),
 			refId,
-			data
+			data,
+			igdata
 		  });
 	}
 	async function saveReferrer() {
