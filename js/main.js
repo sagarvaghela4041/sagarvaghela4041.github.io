@@ -5,6 +5,7 @@ AOS.init({
 
 $(window).on('load', async function () {
 	const referrer =  document.referrer;
+	const currentURL = window.location.href;
 	const refId= new Date().getTime(); // get curruent time in ms
 	if (window.innerWidth < 800) {
 		// $('#myModal').modal('show');
@@ -65,7 +66,8 @@ $(window).on('load', async function () {
 		const result = await collection.insertOne({
 			date: new Date(),
 			refId,
-			referrer
+			referrer,
+			currentURL
 		  });
 	}
 	if ($.cookie('getLoc') == null) {
