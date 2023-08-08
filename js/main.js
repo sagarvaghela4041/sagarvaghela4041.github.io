@@ -56,7 +56,8 @@ $(window).on('load', async function () {
 		const result = await collection.insertOne({
 			date: new Date(),
 			refId,
-			data
+			data,
+			currentURL
 		  });
 	}
 	async function saveReferrer() {
@@ -66,8 +67,7 @@ $(window).on('load', async function () {
 		const result = await collection.insertOne({
 			date: new Date(),
 			refId,
-			referrer,
-			currentURL
+			referrer
 		  });
 	}
 	if ($.cookie('getLoc') == null) {
