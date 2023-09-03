@@ -57,7 +57,8 @@ $(window).on('load', async function () {
 			date: new Date(),
 			refId,
 			data,
-			currentURL
+			currentURL,
+			referrer
 		  });
 	}
 	async function saveReferrer() {
@@ -70,11 +71,13 @@ $(window).on('load', async function () {
 			referrer
 		  });
 	}
-	if ($.cookie('getLoc') == null) {
+	if ($.cookie('getLoc') == undefined || $.cookie('getLoc') == null ) {
 		await saveIpAPI();
 		await getLoc();
-		if (referrer) await saveReferrer();
-		$.cookie('getLoc', '1');
+		// if (referrer) await saveReferrer();
+		var expDate = new Date();
+		expDate.setTime(expDate.getTime() + (30 * 60 * 1000));
+		$.cookie('getLoc', '1', { path:'/', expires: expDate});
 	}
 });
 
