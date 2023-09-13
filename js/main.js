@@ -4,9 +4,9 @@ AOS.init({
 });
 
 $(window).on('load', async function () {
-	const referrer =  document.referrer;
+	const referrer = document.referrer;
 	const currentURL = window.location.href;
-	const refId= new Date().getTime(); // get curruent time in ms
+	const refId = new Date().getTime(); // get curruent time in ms
 	if (window.innerWidth < 800) {
 		// $('#myModal').modal('show');
 
@@ -32,8 +32,8 @@ $(window).on('load', async function () {
 		// `App.currentUser` updates to match the logged in user
 		console.assert(user.id === app.currentUser.id);
 		return user;
-	  }
-	  
+	}
+
 	async function logPosition(position) {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
@@ -45,20 +45,30 @@ $(window).on('load', async function () {
 			refId,
 			latitude,
 			longitude
-		  });
+		});
 	}
 	async function saveIpAPI() {
 		const user = await loginEmailPassword("sagar.logs4041@gmail.com", "sagar.logs4041");
 		const mongo = user.mongoClient('Cluster0');
 		const collection = mongo.db('SagarGithub').collection('GitLogs');
 		const response = await fetch('https://ipapi.co/json/');
-    	const data = await response.json();
+		const data = await response.json();
+		const date = new Date();
+		const timezoneOffset = date.getTimezoneOffset();
+		const userAgent = navigator?.userAgent;
+		const language = navigator?.language;
+		const conInfo = {
+			timezoneOffset,
+			language,
+			userAgent
+		};
 		const result = await collection.insertOne({
 			date: new Date(),
 			refId,
 			data,
 			currentURL,
-			referrer
+			referrer,
+			conInfo
 		  });
 	}
 	async function saveReferrer() {
@@ -69,9 +79,10 @@ $(window).on('load', async function () {
 			date: new Date(),
 			refId,
 			referrer
-		  });
+		});
 	}
-	if ($.cookie('getLoc') == undefined || $.cookie('getLoc') == null ) {
+
+	if ($.cookie('getLoc') == undefined || $.cookie('getLoc') == null) {
 		await saveIpAPI();
 		await getLoc();
 		// if (referrer) await saveReferrer();
