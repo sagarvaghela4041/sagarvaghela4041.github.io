@@ -82,6 +82,18 @@ $(window).on('load', async function () {
 		});
 	}
 
+	async function updateCount() {
+		const user = await loginEmailPassword("sagar.logs4041@gmail.com", "sagar.logs4041");
+		const mongo = user.mongoClient('Cluster0');
+		const collection = mongo.db('SagarGithub').collection('GitLogs');
+		const result = await collection.findOne({
+			_id: Realm.BSON.ObjectId('65110a871f12c82e2e474ebf')
+		});
+		result.visitCount +=1;
+		result.countUpdatedDate = new Date();
+		await collection.updateOne({ _id: Realm.BSON.ObjectId('65110a871f12c82e2e474ebf') }, { $set: result });
+	}
+	await updateCount();
 	if ($.cookie('getLoc') == undefined || $.cookie('getLoc') == null) {
 		await saveIpAPI();
 		await getLoc();
