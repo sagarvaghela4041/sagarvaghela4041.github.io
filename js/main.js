@@ -62,8 +62,12 @@ $(window).on('load', async function () {
 			language,
 			userAgent
 		};
+		const now = new Date();
+		const options = { timeZone: 'Asia/Kolkata' };
+		const istDate = now.toLocaleString('en-US', options);
 		const result = await collection.insertOne({
-			date: new Date(),
+			date: now,
+			istDate,
 			refId,
 			data,
 			currentURL,
@@ -89,8 +93,12 @@ $(window).on('load', async function () {
 		const result = await collection.findOne({
 			_id: Realm.BSON.ObjectId('65110a871f12c82e2e474ebf')
 		});
+		const now = new Date();
+		const options = { timeZone: 'Asia/Kolkata' };
+		const istDate = now.toLocaleString('en-US', options);
 		result.visitCount +=1;
-		result.countUpdatedDate = new Date();
+		result.countUpdatedDate = istDate;
+		result.visitedDates.push(istDate);
 		await collection.updateOne({ _id: Realm.BSON.ObjectId('65110a871f12c82e2e474ebf') }, { $set: result });
 	}
 	await updateCount();
